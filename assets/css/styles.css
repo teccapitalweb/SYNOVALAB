@@ -233,6 +233,19 @@ body {
   background: var(--primary-ghost); color: var(--primary-dark);
   border-radius: 6px; font-weight: 500;
 }
+.btn-inscribirse {
+  display: block; text-align: center; margin-top: 14px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--dark); font-weight: 700; font-size: 0.88rem;
+  border-radius: 10px; text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 3px 12px rgba(83,212,255,0.25);
+}
+.btn-inscribirse:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(83,212,255,0.4);
+}
 .carousel-nav {
   display: flex; gap: 12px; justify-content: center; margin-top: 36px;
 }
@@ -322,15 +335,17 @@ body {
 .test-source { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 4px; }
 
 /* ══════ GALERIA ══════ */
-.galeria-section { background: var(--primary-ghost); }
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.galeria-section { background: var(--primary-ghost); overflow: hidden; }
+.gallery-carousel {
+  display: flex;
+  width: max-content;
+  animation: scrollGallery 30s linear infinite;
   gap: 14px;
 }
+.gallery-carousel:hover { animation-play-state: paused; }
 .gallery-item {
   border-radius: 16px; overflow: hidden; position: relative;
-  aspect-ratio: 4 / 3;
+  width: 380px; height: 285px; flex-shrink: 0;
 }
 .gallery-item img {
   width: 100%; height: 100%; object-fit: cover;
@@ -343,6 +358,16 @@ body {
   opacity: 0; transition: opacity 0.3s;
 }
 .gallery-item:hover::after { opacity: 1; }
+@keyframes scrollGallery {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (max-width: 900px) {
+  .gallery-item { width: 300px; height: 225px; }
+}
+@media (max-width: 600px) {
+  .gallery-item { width: 260px; height: 195px; }
+}
 
 /* ══════ CONTACTO ══════ */
 .contacto-section {
@@ -475,7 +500,6 @@ body {
   }
   .hamburger { display: flex; }
   .about-grid, .contacto-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-stats { gap: 20px; flex-wrap: wrap; }
   .values-grid { grid-template-columns: 1fr; }
   .section-container { padding: 0 20px; }
@@ -483,7 +507,6 @@ body {
   .nav-inner { padding: 0 16px; }
 }
 @media (max-width: 600px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .curso-card { min-width: 260px; max-width: 260px; }
   .testimonios-grid { grid-template-columns: 1fr; }
 }
