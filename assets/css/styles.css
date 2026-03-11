@@ -195,10 +195,25 @@ body {
 }
 .carousel-track {
   display: flex; gap: 24px;
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
   cursor: grab; user-select: none;
+  -webkit-overflow-scrolling: touch;
 }
 .carousel-track:active { cursor: grabbing; }
+@media (max-width: 900px) {
+  .carousel-track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    transform: none !important;
+    padding-bottom: 8px;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .curso-card {
+    scroll-snap-align: start;
+  }
+}
 .curso-card {
   min-width: 290px; max-width: 290px;
   background: var(--white);
@@ -245,6 +260,20 @@ body {
 .btn-inscribirse:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(83,212,255,0.4);
+}
+.curso-temario {
+  list-style: none; padding: 0; margin: 10px 0 0;
+  border-top: 1px solid rgba(83,212,255,0.15);
+  padding-top: 10px;
+}
+.curso-temario li {
+  font-size: 0.78rem; color: var(--text-light);
+  padding: 3px 0 3px 16px; position: relative;
+  line-height: 1.4;
+}
+.curso-temario li::before {
+  content: '✓'; position: absolute; left: 0;
+  color: var(--primary-dark); font-weight: 700; font-size: 0.7rem;
 }
 .carousel-nav {
   display: flex; gap: 12px; justify-content: center; margin-top: 36px;
