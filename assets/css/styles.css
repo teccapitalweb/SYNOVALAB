@@ -217,11 +217,7 @@ body {
 }
 .curso-card:hover img { transform: scale(1.05); }
 .precio-tag {
-  position: absolute; top: 14px; right: 14px;
-  background: linear-gradient(135deg, #e53e3e, #c53030);
-  color: white; font-weight: 700; font-size: 0.88rem;
-  padding: 6px 14px; border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(197,48,48,0.3);
+  display: none;
 }
 .curso-info { padding: 22px; }
 .curso-info h3 {
@@ -330,10 +326,11 @@ body {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 260px; gap: 14px;
+  gap: 14px;
 }
 .gallery-item {
   border-radius: 16px; overflow: hidden; position: relative;
+  aspect-ratio: 4 / 3;
 }
 .gallery-item img {
   width: 100%; height: 100%; object-fit: cover;
@@ -346,8 +343,6 @@ body {
   opacity: 0; transition: opacity 0.3s;
 }
 .gallery-item:hover::after { opacity: 1; }
-.gallery-item:nth-child(1) { grid-row: span 2; }
-.gallery-item:nth-child(5) { grid-column: span 2; }
 
 /* ══════ CONTACTO ══════ */
 .contacto-section {
@@ -480,9 +475,7 @@ body {
   }
   .hamburger { display: flex; }
   .about-grid, .contacto-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
-  .gallery-item:nth-child(1) { grid-row: span 1; }
-  .gallery-item:nth-child(5) { grid-column: span 1; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-stats { gap: 20px; flex-wrap: wrap; }
   .values-grid { grid-template-columns: 1fr; }
   .section-container { padding: 0 20px; }
@@ -490,7 +483,7 @@ body {
   .nav-inner { padding: 0 16px; }
 }
 @media (max-width: 600px) {
-  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .curso-card { min-width: 260px; max-width: 260px; }
   .testimonios-grid { grid-template-columns: 1fr; }
 }
