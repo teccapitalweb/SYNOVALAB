@@ -189,15 +189,16 @@ body {
 
 /* ══════ EMPRESAS ALIADAS ══════ */
 .trusted-logos-section {
-  padding: 0 0 42px;
+  padding: 38px 0 42px;
   background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(232,247,255,0.85) 100%);
-  margin-top: -28px;
+  margin-top: -8px;
   position: relative;
   z-index: 2;
 }
 .trusted-logos-header {
   text-align: center;
   margin-bottom: 22px;
+  padding-top: 8px;
 }
 .trusted-logos-header h2 {
   font-size: clamp(1.05rem, 2.4vw, 1.45rem);
@@ -619,4 +620,15 @@ body {
 @media (max-width: 600px) {
   .curso-card { min-width: 260px; max-width: 260px; }
   .testimonios-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .trusted-logos-section {
+    padding-top: 32px;
+    margin-top: 0;
+  }
+
+  .trusted-logos-header {
+    margin-bottom: 18px;
+  }
 }
