@@ -99,3 +99,10 @@ document.querySelector('.form-submit').addEventListener('click', function () {
 document.querySelectorAll('.nav-links a').forEach(function (a) {
   a.addEventListener('click', closeMenu);
 });
+
+
+// ══════ LOGOS MARQUEE ACCESSIBILITY ══════
+const logosTrack = document.querySelector('.logos-track');
+if (logosTrack && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  logosTrack.style.animation = 'none';
+}

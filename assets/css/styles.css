@@ -185,6 +185,87 @@ body {
   margin: 18px auto 0;
 }
 
+
+
+/* ══════ EMPRESAS ALIADAS ══════ */
+.trusted-logos-section {
+  padding: 0 0 42px;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(232,247,255,0.85) 100%);
+  margin-top: -28px;
+  position: relative;
+  z-index: 2;
+}
+.trusted-logos-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+.trusted-logos-header h2 {
+  font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+  color: var(--dark);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.logos-marquee {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 22px 0;
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 34px rgba(10,22,40,0.08);
+  border: 1px solid rgba(83,212,255,0.18);
+}
+.logos-marquee::before,
+.logos-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 110px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.logos-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0) 100%);
+}
+.logos-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0) 100%);
+}
+.logos-track {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: max-content;
+  animation: logoMarquee 34s linear infinite;
+}
+.logos-marquee:hover .logos-track {
+  animation-play-state: paused;
+}
+.logo-item {
+  width: 180px;
+  min-width: 180px;
+  height: 92px;
+  border-radius: 18px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 18px;
+  box-shadow: 0 8px 24px rgba(10,22,40,0.08);
+}
+.logo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: saturate(1.02) contrast(1.02);
+}
+@keyframes logoMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 /* ══════ CURSOS ══════ */
 .cursos-section {
   background: linear-gradient(180deg, var(--primary-ghost) 0%, var(--white) 50%, var(--primary-ghost) 100%);
